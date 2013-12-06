@@ -2,6 +2,7 @@
 -module(helloWorld).
 -export([start/0]).
 
+-export([testing/0]).
 
 
 
@@ -9,6 +10,9 @@
 % [ ] Calling other methods
 
 % [ ] Print even numbers
+% [ ] arrays
+% [ ] lists
+% [ ] tuples
 
 
 
@@ -17,7 +21,16 @@
 % [ ] trie? 
 
 
+
+
+testing() ->
+    io:fwrite("testing...\n").
+
 start() ->
-    io:fwrite("wassa\n").
+    io:fwrite("wassa\n"),
+    testing().
+
+
+
 
 
