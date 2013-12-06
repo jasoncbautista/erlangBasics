@@ -26,8 +26,17 @@
 testing() ->
     io:fwrite("testing...\n").
 
+
+
+testing(RandomVariable) ->
+    io:format("The value is: ~p \n", [RandomVariable]).
+
+
+
+
 start() ->
     io:fwrite("wassa\n"),
+    testing("Coolio"),
     testing().
 
 
