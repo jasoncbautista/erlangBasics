@@ -3,11 +3,12 @@
 -export([start/0]).
 
 -export([testing/0]).
+-export([isEven/2]).
 
 
 
+% [x] Calling other methods
 % [ ]Mess with switch statements
-% [ ] Calling other methods
 
 % [ ] Print even numbers
 % [ ] arrays
@@ -33,10 +34,22 @@ testing(RandomVariable) ->
 
 
 
+isEven(CurrentValue, Ii) ->
+    Is_even = (CurrentValue  rem 2) =:= 0,
+    case  Is_even  of 
+        true ->
+            io:fwrite("even\n");
+        false ->
+            io:fwrite("odd\n")
+    end.
+
+
+
 start() ->
     io:fwrite("wassa\n"),
     testing("one two"),
     testing("Coolio"),
+    isEven(5, 0),
     testing().
 
 
