@@ -4,11 +4,12 @@
 
 -export([testing/0]).
 -export([isEven/1]).
+-export([printEvenNumbers/2]).
 
 
 
 % [x] Calling other methods
-% [ ]Mess with switch statements
+% [x]Mess with switch statements
 
 % [ ] Print even numbers
 % [ ] arrays
@@ -24,37 +25,43 @@
 
 
 testing() ->
-    io:fwrite("testing...\n").
-
+    io:fwrite("Done...\n").
 
 
 testing(RandomVariable) ->
-    io:format("The value is: ~p \n", [RandomVariable]).
-
-
-
+    io:format("~p \n", [RandomVariable]).
 
 isEven(CurrentValue) ->
     Is_even = (CurrentValue  rem 2) =:= 0,
     case  Is_even  of 
         true ->
-            io:fwrite("even\n"),
             true;
         false ->
-            io:fwrite("odd\n"),
             false
     end.
 
+printEvenNumbers(Min, Max) ->
+    case Min > Max of
+        true -> 
+            true;
+        false ->
+            case isEven(Min) of
+                true ->
+                    testing(Min),
+                    printEvenNumbers(Min+1, Max);
+                false ->
+                    printEvenNumbers(Min+1, Max)
+            end
+    end.
 
 
 start() ->
     % io:fwrite("wassa\n"),
     % testing("one two"),
     % testing("Coolio"),
-    WasEven = isEven(6),
 
+    printEvenNumbers(-2, 51),
 
-    testing(WasEven),
     testing().
 
 
@@ -62,4 +69,7 @@ start() ->
 % Questions 
 % [ ]  Why can functions be lowecase but variables not? atoms?
 % [ ] Why  do we have  "; "  vs ", " and  "." ???? 
+% [ ] how to use fxns instead of case?
+%
+%
 
