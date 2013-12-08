@@ -3,7 +3,7 @@
 -export([start/0]).
 
 -export([testing/0]).
--export([isEven/2]).
+-export([isEven/1]).
 
 
 
@@ -34,25 +34,32 @@ testing(RandomVariable) ->
 
 
 
-isEven(CurrentValue, Ii) ->
+isEven(CurrentValue) ->
     Is_even = (CurrentValue  rem 2) =:= 0,
     case  Is_even  of 
         true ->
-            io:fwrite("even\n");
+            io:fwrite("even\n"),
+            true;
         false ->
-            io:fwrite("odd\n")
+            io:fwrite("odd\n"),
+            false
     end.
 
 
 
 start() ->
-    io:fwrite("wassa\n"),
-    testing("one two"),
-    testing("Coolio"),
-    isEven(5, 0),
+    % io:fwrite("wassa\n"),
+    % testing("one two"),
+    % testing("Coolio"),
+    WasEven = isEven(6),
+
+
+    testing(WasEven),
     testing().
 
 
-
-
+%%%%%%%%%%%%%%%%%%%%%
+% Questions 
+% [ ]  Why can functions be lowecase but variables not? atoms?
+% [ ] Why  do we have  "; "  vs ", " and  "." ???? 
 
