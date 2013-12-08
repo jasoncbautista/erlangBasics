@@ -22,7 +22,6 @@
 
 
 
-
 testing() ->
     io:fwrite("testing...\n").
 
@@ -36,6 +35,7 @@ testing(RandomVariable) ->
 
 start() ->
     io:fwrite("wassa\n"),
+    testing("one two"),
     testing("Coolio"),
     testing().
 
