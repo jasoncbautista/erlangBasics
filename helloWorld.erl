@@ -1,27 +1,22 @@
 % hello world program
 -module(helloWorld).
 -export([start/0]).
-
 -export([testing/0]).
 -export([isEven/1]).
 -export([printEvenNumbers/2]).
 
-
-
 % [x] Calling other methods
 % [x]Mess with switch statements
-
-% [ ] Print even numbers
+% [x] Print even numbers
+% higher ord fxns
+% annonymous fxn 
+% [ ] Return even numbers
+% [ ] Extract even numbers
 % [ ] arrays
 % [ ] lists
 % [ ] tuples
-
-
-
 % [ ] binary tree
-%
 % [ ] trie? 
-
 
 
 testing() ->
@@ -59,8 +54,9 @@ start() ->
     % io:fwrite("wassa\n"),
     % testing("one two"),
     % testing("Coolio"),
+    % [ X || X <- lists:seq(1, 100), X > 20, X rem 2 =:= 0].
 
-    printEvenNumbers(-2, 51),
+    printEvenNumbers(-2, 5100),
 
     testing().
 
@@ -70,6 +66,7 @@ start() ->
 % [ ]  Why can functions be lowecase but variables not? atoms?
 % [ ] Why  do we have  "; "  vs ", " and  "." ???? 
 % [ ] how to use fxns instead of case?
-%
-%
+% [ ] compile and run? 
+%%%%%%%%%%%%%%%%%%%%%
+
 
