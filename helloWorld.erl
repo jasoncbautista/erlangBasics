@@ -79,11 +79,11 @@ start() ->
 
     printList([1, 2, 3]),
 
-    cool=2+1,
+    Cool=2+1,
 
     map(fun(X) -> 
-                % r =  2 * X, 
-                testing(X),
+                R =  2 * X, 
+                testing(R),
                 testing(X),
                 2 * X 
         end, [1,2,3,4,5]),
