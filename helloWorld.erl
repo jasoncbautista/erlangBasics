@@ -1,9 +1,13 @@
 % hello world program
 -module(helloWorld).
+
+-import(lists, [map/2]).
+
 -export([start/0]).
 -export([testing/0]).
 -export([isEven/1]).
 -export([printEvenNumbers/2]).
+
 
 -export([printList/1]).
 
@@ -75,6 +79,11 @@ start() ->
 
     printList([1, 2, 3]),
 
+    map(fun(X) -> 
+                testing(X),
+                2 * X 
+        end, [1,2,3,4,5]),
+
     testing().
 
 
@@ -85,6 +94,8 @@ start() ->
 % [ ] how to use fxns instead of case?
 % [ ] compile and run? 
 % [ ] *** how to import lists.seq ??? how to know how to import?
+% [ ] *** how to import in erl repl? 
+
 %%%%%%%%%%%%%%%%%%%%%
 
 
