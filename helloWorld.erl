@@ -71,6 +71,8 @@ start() ->
     % [ X || X <- lists:seq(1, 100), X > 20, X rem 2 =:= 0].
 
     % printEvenNumbers(-2, 5100),
+    % printList(lists.seq(1, 10)),
+
     printList([1, 2, 3]),
 
     testing().
