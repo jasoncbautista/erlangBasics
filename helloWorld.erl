@@ -70,3 +70,6 @@ start() ->
 %%%%%%%%%%%%%%%%%%%%%
 
 
+
+% RUNNING ERLANG:
+% erlc helloWorld.erl && erl -noshell -s helloWorld start -s init stop
