@@ -5,6 +5,8 @@
 -export([isEven/1]).
 -export([printEvenNumbers/2]).
 
+-export([printList/1]).
+
 % [x] Calling other methods
 % [x]Mess with switch statements
 % [x] Print even numbers
@@ -18,6 +20,10 @@
 % [ ] binary tree
 % [ ] trie? 
 
+
+% [ ] map function
+% [ ] filter function
+% [ ] lambda function
 
 testing() ->
     io:fwrite("Done...\n").
@@ -50,13 +56,22 @@ printEvenNumbers(Min, Max) ->
     end.
 
 
+printList([H|T]) ->
+    testing(H),
+    printList(T);
+printList([]) ->
+    true.
+
+
+
 start() ->
     % io:fwrite("wassa\n"),
     % testing("one two"),
     % testing("Coolio"),
     % [ X || X <- lists:seq(1, 100), X > 20, X rem 2 =:= 0].
 
-    printEvenNumbers(-2, 5100),
+    % printEvenNumbers(-2, 5100),
+    printList([1, 2, 3]),
 
     testing().
 
@@ -67,9 +82,12 @@ start() ->
 % [ ] Why  do we have  "; "  vs ", " and  "." ???? 
 % [ ] how to use fxns instead of case?
 % [ ] compile and run? 
+% [ ] *** how to import lists.seq ??? how to know how to import?
 %%%%%%%%%%%%%%%%%%%%%
 
 
 
 % RUNNING ERLANG:
 % erlc helloWorld.erl && erl -noshell -s helloWorld start -s init stop
+%
+%
