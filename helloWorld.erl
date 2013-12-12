@@ -10,6 +10,7 @@
 
 
 -export([printList/1]).
+-export([higherOrderExample/2]).
 
 % [x] Calling other methods
 % [x]Mess with switch statements
@@ -28,6 +29,11 @@
 % [ ] map function
 % [ ] filter function
 % [ ] lambda function
+% [ ] add elements to array
+
+
+higherOrderExample(F, X) ->
+    F(X).
 
 testing() ->
     io:fwrite("Done...\n").
@@ -87,6 +93,10 @@ start() ->
                 testing(X),
                 2 * X 
         end, [1,2,3,4,5]),
+
+    higherOrderExample(fun(X) ->
+                testing(X)
+        end, [100, 200, 300]),
 
     testing().
 
