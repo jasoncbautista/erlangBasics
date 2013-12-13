@@ -21,6 +21,7 @@
 % [ ] Extract even numbers
 % [ ] arrays
 % [ ] lists
+% [ ] -- append to list
 % [ ] tuples
 % [ ] binary tree
 % [ ] trie? 
@@ -31,6 +32,12 @@
 % [ ] lambda function
 % [ ] add elements to array
 
+
+
+% [ ] write two programs that talk to each other 
+% [ ] monitor with OTP
+% [ ] use Dialyzer
+%
 
 higherOrderExample(F, X) ->
     F(X).
@@ -109,6 +116,7 @@ start() ->
 % [ ] compile and run? 
 % [ ] *** how to import lists.seq ??? how to know how to import?
 % [ ] *** how to import in erl repl? 
+% [ ] how to deal with lists that can also be strings??
 
 %%%%%%%%%%%%%%%%%%%%%
 
