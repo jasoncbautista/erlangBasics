@@ -98,6 +98,13 @@ start() ->
                 testing(X)
         end, [100, 200, 300]),
 
+
+
+
+    M = [1,2,3],
+    F = [4| M],
+    testing(F),
+
     testing().
 
 
