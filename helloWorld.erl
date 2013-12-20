@@ -5,9 +5,11 @@
 
 -export([start/0]).
 -export([testing/0]).
+-export([testing/1]).
 -export([isEven/1]).
 -export([printEvenNumbers/2]).
 
+-export([basicPrint/1]).
 -export([printList/1]).
 -export([addToEndOfList/2]).
 
@@ -46,6 +48,9 @@ higherOrderExample(F, X) ->
 testing() ->
     io:fwrite("Done...\n").
 
+
+basicPrint(RandomVariable) ->
+    testing(RandomVariable).
 
 testing(RandomVariable) ->
     io:format("~p \n", [RandomVariable]).
@@ -110,9 +115,14 @@ start() ->
     printList(NewList),
     testing(":: NewList:"),
 
+    basicPrint("Native append to list"),
+    ComboLists = [100, 200] ++ [300, 400],
+    printList(ComboLists),
+    
     printList([1, 2, 3]),
 
     Cool=2+1,
+    basicPrint(Cool),
 
     map(fun(X) -> 
                 R =  2 * X, 
@@ -130,9 +140,6 @@ start() ->
     F = [4| M],
     testing(F),
 
-    L = [F| 5], 
-
-    testing(L),
     testing().
 
 
@@ -148,6 +155,7 @@ start() ->
 % [ ] *** how to import lists.seq ??? how to know how to import?
 % [ ] *** how to import in erl repl? 
 % [ ] how to deal with lists that can also be strings??
+% [ ]  why did not declaring testing/1  was fine?? because of testing/0?
 
 %%%%%%%%%%%%%%%%%%%%%
 
