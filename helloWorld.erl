@@ -130,6 +130,9 @@ start() ->
     F = [4| M],
     testing(F),
 
+    L = [F| 5], 
+
+    testing(L),
     testing().
 
 
