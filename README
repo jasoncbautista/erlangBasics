@@ -8,4 +8,6 @@ Learning erlang baiscs.
 How to debug erlang error
 codes for web
 
+erlc helloWorld.erl && erl -noshell -s helloWorld start -s init stop
+
 

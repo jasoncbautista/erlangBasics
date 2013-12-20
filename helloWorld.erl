@@ -8,8 +8,9 @@
 -export([isEven/1]).
 -export([printEvenNumbers/2]).
 
-
 -export([printList/1]).
+-export([addToEndOfList/2]).
+
 -export([higherOrderExample/2]).
 
 % [x] Calling other methods
@@ -73,13 +74,27 @@ printEvenNumbers(Min, Max) ->
     end.
 
 
+addToEndOfList([H|Tail1], Tail2) ->
+
+    testing("Head:"), 
+    testing(H), 
+
+    testing("Tail1:"), 
+    printList(Tail1),
+
+    testing("Tail2:"), 
+    printList(Tail2),
+
+    [H|addToEndOfList(Tail1, Tail2)];
+
+addToEndOfList([], Tail) ->
+    Tail.
+
 printList([H|T]) ->
     testing(H),
     printList(T);
 printList([]) ->
     true.
-
-
 
 start() ->
     % io:fwrite("wassa\n"),
@@ -89,6 +104,11 @@ start() ->
 
     % printEvenNumbers(-2, 5100),
     % printList(lists.seq(1, 10)),
+
+    NewList = addToEndOfList([1,2,3], [4,5,6]),
+    testing("NewList:"),
+    printList(NewList),
+    testing(":: NewList:"),
 
     printList([1, 2, 3]),
 
@@ -106,8 +126,6 @@ start() ->
         end, [100, 200, 300]),
 
 
-
-
     M = [1,2,3],
     F = [4| M],
     testing(F),
@@ -115,8 +133,11 @@ start() ->
     testing().
 
 
+
+
 %%%%%%%%%%%%%%%%%%%%%
 % Questions 
+% [ ] calling my functions from erl 
 % [ ]  Why can functions be lowecase but variables not? atoms?
 % [ ] Why  do we have  "; "  vs ", " and  "." ???? 
 % [ ] how to use fxns instead of case?
@@ -127,9 +148,6 @@ start() ->
 
 %%%%%%%%%%%%%%%%%%%%%
 
-
-
 % RUNNING ERLANG:
 % erlc helloWorld.erl && erl -noshell -s helloWorld start -s init stop
-%
 %
