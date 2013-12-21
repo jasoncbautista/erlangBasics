@@ -79,6 +79,12 @@ printEvenNumbers(Min, Max) ->
     end.
 
 
+findMax(Array_, currentMax) ->
+    ,
+
+findMax(Array_, currentMax) ->
+    .
+
 addToEndOfList([H|Tail1], Tail2) ->
 
     testing("Head:"), 
@@ -143,11 +149,13 @@ start() ->
     testing().
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%
 % Questions 
-% [ ] calling my functions from erl 
+% [x] calling my functions from erl 
+% open erl in dir of file:
+%   c(helloWorld).
+%   helloWorld:basicPrint("testing").
+%
 % [ ]  Why can functions be lowecase but variables not? atoms?
 % [ ] Why  do we have  "; "  vs ", " and  "." ???? 
 % [ ] how to use fxns instead of case?
@@ -161,4 +169,10 @@ start() ->
 
 % RUNNING ERLANG:
 % erlc helloWorld.erl && erl -noshell -s helloWorld start -s init stop
+%
+%
+%
+%
+%[ ] Binary tree
+%[ ] max / min 
 %
