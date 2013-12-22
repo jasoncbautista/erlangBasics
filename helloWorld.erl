@@ -11,6 +11,7 @@
 
 -export([basicPrint/1]).
 -export([printList/1]).
+-export([findMax/2]).
 -export([addToEndOfList/2]).
 
 -export([higherOrderExample/2]).
@@ -79,10 +80,12 @@ printEvenNumbers(Min, Max) ->
     end.
 
 
-findMax(Array_, currentMax) ->
+findMax(Array_, CurrentMax) ->
+    % Need to find max:
     basicPrint("cool");
 
-findMax(Array_, currentMax) ->
+
+findMax(Array_, CurrentMax) ->
     basicPrint("testing").
 
 addToEndOfList([H|Tail1], Tail2) ->
