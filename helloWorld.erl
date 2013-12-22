@@ -12,7 +12,7 @@
 -export([basicPrint/1]).
 -export([printList/1]).
 
--export([findMaxMain/1]).
+-export([findMax/1]).
 -export([findMax/2]).
 -export([addToEndOfList/2]).
 
@@ -81,9 +81,8 @@ printEvenNumbers(Min, Max) ->
             end
     end.
 
-findMaxMain(Array_) ->
-    basicPrint("one"),
-    [CurrentMax, Tail] = Array_,
+findMax( Array_ ) ->
+    [CurrentMax| Tail] = Array_,
     findMax(Tail, CurrentMax).
 
 findMax([], CurrentMax) ->
