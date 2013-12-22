@@ -1,3 +1,7 @@
+Installing:
+
+sudo apt-get install erlang erlang-doc
+
 Learning erlang baiscs.
 
 

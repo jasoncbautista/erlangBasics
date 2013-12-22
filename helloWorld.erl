@@ -80,10 +80,10 @@ printEvenNumbers(Min, Max) ->
 
 
 findMax(Array_, currentMax) ->
-    ,
+    basicPrint("cool");
 
 findMax(Array_, currentMax) ->
-    .
+    basicPrint("testing").
 
 addToEndOfList([H|Tail1], Tail2) ->
 
