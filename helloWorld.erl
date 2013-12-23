@@ -16,7 +16,13 @@
 -export([findMax/2]).
 -export([addToEndOfList/2]).
 
+% Binary Tree stuff
+% -export([addToTreeRight/2]).
+-export([addToLinkedList/2]).
+
 -export([higherOrderExample/2]).
+
+-record(linkItem, {value, next}).
 
 % [x] Calling other methods
 % [x]Mess with switch statements
@@ -66,6 +72,17 @@ isEven(CurrentValue) ->
         false ->
             false
     end.
+
+% addToTreeRight (Tree, NewValue) ->
+%     {node, Left, Right} = Tree,
+%     CurentValue  =  NewValue,
+%     Tree.
+
+
+
+addToLinkedList(ListNode, Value) ->
+    %ListNode
+    basicPrint("hi").
 
 printEvenNumbers(Min, Max) ->
     case Min > Max of
@@ -134,9 +151,7 @@ start() ->
     testing("NewList:"),
     printList(NewList),
     testing(":: NewList:"),
-
-    basicPrint("Native append to list"),
-    ComboLists = [100, 200] ++ [300, 400],
+basicPrint("Native append to list"), ComboLists = [100, 200] ++ [300, 400],
     printList(ComboLists),
     
     printList([1, 2, 3]),
@@ -185,8 +200,10 @@ start() ->
 % erlc helloWorld.erl && erl -noshell -s helloWorld start -s init stop
 %
 %
-%
-%
+%[ ] tuples
+%[ ] records
+%[ ] pointers
+%[ ] linked list
 %[ ] Binary tree
-%[ ] max / min 
+%[x] max / min 
 %

@@ -15,3 +15,13 @@ codes for web
 erlc helloWorld.erl && erl -noshell -s helloWorld start -s init stop
 
 
+
+
+erl repl:
+erl
+
+
+% Import modules:
+c(helloWorld).
+% Import records:
+rr(helloWorld).
