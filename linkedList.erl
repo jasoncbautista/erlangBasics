@@ -1,5 +1,5 @@
 -module(linkedList).
--export([new/2]).
+-export([new/0]).
 -export([append/2]).
 
 
@@ -15,7 +15,7 @@ new() ->
 
 % Catches the case when we have the tail of our list.
 % Essentially implemententing a base case.
-append(CurrentNode, Data) when  List#node.next == undefined ->
+append(CurrentNode, Data) when  CurrentNode#node.next == undefined ->
     NewNode = #node{data=Data},
     #node{data=CurrentNode#node.data, next=NewNode};
 
