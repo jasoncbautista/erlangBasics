@@ -38,4 +38,7 @@ valueExists(List, Value) ->
 % Basic test of linked list.
 test() ->
     % simple printing of a list
-    1.
+    SampleList = linkedList:new(),
+    SampleList2 = linkedList:append(SampleList, "Cool"),
+    SampleList3 = linkedList:append(SampleList2, "Next"),
+    linkedList:valueExists(SampleList3, "Next").
