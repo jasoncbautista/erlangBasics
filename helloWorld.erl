@@ -79,6 +79,9 @@ isEven(CurrentValue) ->
 %     CurentValue  =  NewValue,
 %     Tree.
 
+% THIS WORKS!!!
+
+% TODO: add empty list catch:
 
 % This is the case when our last node was null, so we are
 % at the end of the list:
