@@ -108,6 +108,12 @@ addNode(Node, Data) when Node#node.next == undefined ->
     NewNode = #node{data=Data}, 
     #node{next=NewNode, data=Node#node.data};
 
+% This will involve moving "pointers" around.
+% addNodeAfter(data, List, Node, Index) ->
+
+% This will involve adding  after a certain data match
+% addDataAfter(data, List, NewData, MatchData) ->
+
 % If the node we are looking at does not have an undefined
 % value we can just keep recreating the list recursively:
 addNode(Node, Data) ->
