@@ -18,13 +18,11 @@
 
 % Binary Tree stuff
 % -export([addToTreeRight/2]).
--export([addToLinkedList/2]).
 
 -export([higherOrderExample/2]).
 
 -export([addNode/2]).
 
--record(linkItem, {value, next}).
 
 -record(node , {data, next}).
 
@@ -81,16 +79,9 @@ isEven(CurrentValue) ->
 %     CurentValue  =  NewValue,
 %     Tree.
 
-addToLinkedList(ListNode, Value)  when  ListNode#node.next == undefined->
-    basicPrint("Null"),
-    ListNode;
 
-addToLinkedList(ListNode, Value) ->
-    %ListNode
-    basicPrint("hi").
-
-
-% If we already have a 
+% This is the case when our last node was null, so we are
+% at the end of the list:
 addNode(Node, Data) when Node#node.next == undefined ->
     NewNode = #node{data=Data}, 
     #node{next=NewNode, data=Node#node.data};
