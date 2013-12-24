@@ -21,6 +21,8 @@
 
 -export([higherOrderExample/2]).
 
+% Linked list
+-export([newList/0]).
 -export([addNode/2]).
 
 
@@ -82,6 +84,23 @@ isEven(CurrentValue) ->
 % THIS WORKS!!!
 
 % TODO: add empty list catch:
+
+
+% [ ] find function
+% [ ] print function
+% [ ] is in list function 
+% [ ] binary tre with double linked list
+
+% [ ] double linked list with  reference array?
+
+
+% Create a new list:
+newList() ->
+    #node{}.
+
+% When we have an empty list:
+addNode(Node, Data) when Node == #node{} ->
+    #node{data=Data};
 
 % This is the case when our last node was null, so we are
 % at the end of the list:
