@@ -22,7 +22,11 @@
 
 -export([higherOrderExample/2]).
 
+-export([addNode/2]).
+
 -record(linkItem, {value, next}).
+
+-record(node , {data, next}).
 
 % [x] Calling other methods
 % [x]Mess with switch statements
@@ -36,7 +40,6 @@
 % [ ] -- append to list
 % [ ] tuples
 % [ ] binary tree
-% [ ] trie? 
 
 
 % [ ] map function
@@ -78,11 +81,27 @@ isEven(CurrentValue) ->
 %     CurentValue  =  NewValue,
 %     Tree.
 
-
+addToLinkedList(ListNode, Value)  when  ListNode#node.next == undefined->
+    basicPrint("Null"),
+    ListNode;
 
 addToLinkedList(ListNode, Value) ->
     %ListNode
     basicPrint("hi").
+
+
+% If we already have a 
+addNode(Node, Data) when Node#node.next == undefined ->
+    NewNode = #node{data=Data}, 
+    #node{next=NewNode, data=Node#node.data};
+
+% If the node we are looking at does not have an undefined
+% value we can just keep recreating the list recursively:
+addNode(Node, Data) ->
+    #node{data=Node#node.data, next=addNode(Node#node.next, Data)}.
+
+
+
 
 printEvenNumbers(Min, Max) ->
     case Min > Max of
@@ -193,6 +212,7 @@ basicPrint("Native append to list"), ComboLists = [100, 200] ++ [300, 400],
 % [ ] *** how to import in erl repl? 
 % [ ] how to deal with lists that can also be strings??
 % [ ]  why did not declaring testing/1  was fine?? because of testing/0?
+%
 
 %%%%%%%%%%%%%%%%%%%%%
 
@@ -204,6 +224,7 @@ basicPrint("Native append to list"), ComboLists = [100, 200] ++ [300, 400],
 %[ ] records
 %[ ] pointers
 %[ ] linked list
+%[ ] Removing from linked list / tree / array
 %[ ] Binary tree
 %[x] max / min 
 %
