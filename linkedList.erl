@@ -1,9 +1,11 @@
 -module(linkedList).
 -export([new/0]).
 -export([append/2]).
-
+-export([valueExists/2]).
 
 -export([test/0]).
+
+% Records
 -record(node, {data, next}).
 
 
@@ -23,8 +25,17 @@ append(CurrentNode, Data) when  CurrentNode#node.next == undefined ->
 % Essentially we are recreating the old list.
 append(CurrentNode, Data) ->
     #node{data=CurrentNode#node.data, next=append(CurrentNode#node.next, Data)} .
+valueExists(List, Value) when List#node.data == Value ->
+    true;
+
+valueExists(List, Value) when List#node.next == undefined ->
+    false;
+
+valueExists(List, Value) ->
+    valueExists(List#node.next, Value).
+    
+
+% Basic test of linked list.
 test() ->
     % simple printing of a list
     1.
-
-
