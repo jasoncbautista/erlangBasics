@@ -18,6 +18,11 @@ new() ->
 
 %% Appends a new node to the list. %%
 %%
+
+% Catches the case when our list is empty:
+append(CurrentNode, Data) when  CurrentNode == #node{}->
+    #node{data=Data};
+
 % Catches the case when we have the tail of our list.
 % Essentially implemententing a base case.
 append(CurrentNode, Data) when  CurrentNode#node.next == undefined ->
@@ -55,11 +60,20 @@ valueExists(List, Value) ->
 test() ->
     % simple printing of a list
     SampleList = linkedList:new(),
-    SampleList2 = linkedList:append(SampleList, "Cool"),
-    SampleList3 = linkedList:append(SampleList2, "Next"),
-    io:format("~p \n", ["Sample List:"]),
+    SampleList2 = linkedList:append(SampleList, "One"),
+    SampleList3 = linkedList:append(SampleList2, "Two"),
+    SampleList4 = linkedList:append(SampleList3, "Three"),
+    SampleList5 = linkedList:append(SampleList4, "Four"),
+
+    io:format("~p \n", ["Sample List3:"]),
     io:format("~p \n", [SampleList3]),
-    linkedList:valueExists(SampleList3, "Next").
+
+    io:format("~p \n", ["Sample List5:"]),
+    io:format("~p \n", [SampleList5]),
+
+
+
+    linkedList:valueExists(SampleList3, "Two").
 
 
 
