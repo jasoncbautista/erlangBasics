@@ -35,6 +35,7 @@ append(CurrentNode, Data) ->
     #node{data=CurrentNode#node.data, next=append(CurrentNode#node.next, Data)} .
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% data
 
 insertAfter(data, List, TargetData, Data) when List#node.data == TargetData ->
     NewNode = #node{data=Data, next=List#node.next},
@@ -42,6 +43,9 @@ insertAfter(data, List, TargetData, Data) when List#node.data == TargetData ->
 
 insertAfter(data, List, TargetData, Data) ->
     #node{data=List#node.data, next=insertAfter(data, List#node.next, TargetData, Data)}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% index
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
