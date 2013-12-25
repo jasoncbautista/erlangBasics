@@ -2,6 +2,7 @@
 -export([new/0]).
 -export([append/2]).
 -export([valueExists/2]).
+-export([insertAfter/4]).
 
 -export([test/0]).
 
@@ -13,8 +14,10 @@
 new() ->
     #node{}.
 
-%% Appends a new node to the list. %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% Appends a new node to the list. %%
+%%
 % Catches the case when we have the tail of our list.
 % Essentially implemententing a base case.
 append(CurrentNode, Data) when  CurrentNode#node.next == undefined ->
@@ -25,6 +28,19 @@ append(CurrentNode, Data) when  CurrentNode#node.next == undefined ->
 % Essentially we are recreating the old list.
 append(CurrentNode, Data) ->
     #node{data=CurrentNode#node.data, next=append(CurrentNode#node.next, Data)} .
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+insertAfter(data, List, TargetData, Data) when List#node.data == TargetData ->
+    NewNode = #node{data=Data, next=List#node.next},
+    #node{data=List#node.data, next=NewNode};
+
+insertAfter(data, List, TargetData, Data) ->
+    #node{data=List#node.data, next=insertAfter(data, List#node.next, TargetData, Data)}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 valueExists(List, Value) when List#node.data == Value ->
     true;
 
@@ -41,4 +57,10 @@ test() ->
     SampleList = linkedList:new(),
     SampleList2 = linkedList:append(SampleList, "Cool"),
     SampleList3 = linkedList:append(SampleList2, "Next"),
+    io:format("~p \n", ["Sample List:"]),
+    io:format("~p \n", [SampleList3]),
     linkedList:valueExists(SampleList3, "Next").
+
+
+
+

@@ -24,7 +24,6 @@
 % Linked list
 -export([newList/0]).
 -export([addNode/2]).
--export([insertAfter/4]).
 
 
 -record(node , {data, next}).
@@ -117,16 +116,6 @@ addNode(Node, Data) when Node#node.next == undefined ->
 addNode(Node, Data) ->
     #node{data=Node#node.data, next=addNode(Node#node.next, Data)}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-insertAfter(data, List, TargetData, Data) when List#node.data == TargetData ->
-    NewNode = #node{data=Data, next=List#node.next},
-    #node{data=List#node.data, next=NewNode};
-
-insertAfter(data, List, TargetData, Data) ->
-    #node{data=List#node.data, next=insertAfter(data, List#node.next, TargetData, Data)}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % insertAfter(index, List, TargetIndex, Data) ->
 
