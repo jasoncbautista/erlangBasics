@@ -3,6 +3,7 @@
 -export([append/2]).
 -export([valueExists/2]).
 -export([insertAfter/4]).
+-export([insertAfter/5]).
 
 -export([test/0]).
 
@@ -46,6 +47,12 @@ insertAfter(data, List, TargetData, Data) ->
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % index
+insertAfter(index, List, Index, Data, CurrentIndex) ->
+
+    .
+
+% insertAfterHelper(index, List, Index, Data) ->
+% insertAfter(index, List, Index, Data, CurrentIndex) when CurrentIndex === undefined ->
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
