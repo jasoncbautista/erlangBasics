@@ -80,3 +80,6 @@ test() ->
 
 
 
+% TODO:
+%  [ ] How to avoid having to redefine SampleList over and over again?
+%   -- callbacks?
