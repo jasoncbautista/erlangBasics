@@ -49,7 +49,7 @@ insertAfter(data, List, TargetData, Data) ->
 valueExists(List, Value) when List#node.data == Value ->
     true;
 
-valueExists(List, Value) when List#node.next == undefined ->
+valueExists(List, _) when List#node.next == undefined ->
     false;
 
 valueExists(List, Value) ->
@@ -71,7 +71,9 @@ test() ->
     io:format("~p \n", ["Sample List5:"]),
     io:format("~p \n", [SampleList5]),
 
-
+    SplicedList = insertAfter(data, SampleList5, "Two", "Two and a half"), 
+    io:fwrite("SplicedList: \n"),
+    io:format("~p \n", [SplicedList]),
 
     linkedList:valueExists(SampleList3, "Two").
 
