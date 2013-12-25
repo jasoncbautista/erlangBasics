@@ -24,6 +24,7 @@
 % Linked list
 -export([newList/0]).
 -export([addNode/2]).
+-export([insertAfter/4]).
 
 
 -record(node , {data, next}).
@@ -98,6 +99,8 @@ isEven(CurrentValue) ->
 newList() ->
     #node{}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % When we have an empty list:
 addNode(Node, Data) when Node == #node{} ->
     #node{data=Data};
@@ -108,9 +111,22 @@ addNode(Node, Data) when Node#node.next == undefined ->
     NewNode = #node{data=Data}, 
     #node{next=NewNode, data=Node#node.data};
 
+
+% If the node we are looking at does not have an undefined
+% value we can just keep recreating the list recursively:
+addNode(Node, Data) ->
+    #node{data=Node#node.data, next=addNode(Node#node.next, Data)}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 insertAfter(data, List, TargetData, Data) when List#node.data == TargetData ->
-    NewNode = #node{data=Data, List#node.next},
+    NewNode = #node{data=Data, next=List#node.next},
     #node{data=List#node.data, next=NewNode};
+
+insertAfter(data, List, TargetData, Data) ->
+    #node{data=List#node.data, next=insertAfter(data, List#node.next, TargetData, Data)}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % insertAfter(index, List, TargetIndex, Data) ->
 
@@ -119,13 +135,6 @@ insertAfter(data, List, TargetData, Data) when List#node.data == TargetData ->
 
 % This will involve adding  after a certain data match
 % addDataAfter(data, List, NewData, MatchData) ->
-
-% If the node we are looking at does not have an undefined
-% value we can just keep recreating the list recursively:
-addNode(Node, Data) ->
-    #node{data=Node#node.data, next=addNode(Node#node.next, Data)}.
-
-
 
 
 printEvenNumbers(Min, Max) ->
