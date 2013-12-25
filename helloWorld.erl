@@ -108,6 +108,12 @@ addNode(Node, Data) when Node#node.next == undefined ->
     NewNode = #node{data=Data}, 
     #node{next=NewNode, data=Node#node.data};
 
+insertAfter(data, List, TargetData, Data) when List#node.data == TargetData ->
+    NewNode = #node{data=Data, List#node.next},
+    #node{data=List#node.data, next=NewNode};
+
+% insertAfter(index, List, TargetIndex, Data) ->
+
 % This will involve moving "pointers" around.
 % addNodeAfter(data, List, Node, Index) ->
 
@@ -167,8 +173,7 @@ addToEndOfList([H|Tail1], Tail2) ->
 
     [H|addToEndOfList(Tail1, Tail2)];
 
-addToEndOfList([], Tail) ->
-    Tail.
+addToEndOfList([], Tail) -> Tail.
 
 printList([H|T]) ->
     testing(H),
