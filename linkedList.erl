@@ -47,12 +47,20 @@ insertAfter(data, List, TargetData, Data) ->
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % index
+
+% Our wrapper function which will just call our recursive counterpart:
+insertAfter(index, List, Index, Data) ->
+    insertAfter(index, List, Index, Data, 0).
+
 insertAfter(index, List, Index, Data, CurrentIndex) ->
+    io:format("CurrentIndex: ~p \n", [CurrentIndex]);
 
-    .
 
-% insertAfterHelper(index, List, Index, Data) ->
-% insertAfter(index, List, Index, Data, CurrentIndex) when CurrentIndex === undefined ->
+insertAfter(index, List, Index, Data, CurrentIndex) when CurrentIndex == Index ->
+    io:format("CurrentIndex: ~p \n", [CurrentIndex]);
+
+insertAfter(index, List, Index, Data, CurrentIndex) when List#node.next == undefined->
+    io:format("ERROR, exeeded list size!: ~p \n", [CurrentIndex]);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
