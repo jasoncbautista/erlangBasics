@@ -4,10 +4,8 @@ sudo apt-get install erlang erlang-doc
 
 Learning erlang baiscs.
 
-
 - variables
 - arrays / lists
-
 
 How to debug erlang error
 codes for web
