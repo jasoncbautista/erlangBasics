@@ -43,7 +43,7 @@ insertAfter(data, List, TargetData, Data) when List#node.data == TargetData ->
     #node{data=List#node.data, next=NewNode};
 
 insertAfter(data, List, TargetData, Data) ->
-    #node{data=List#node.data, next=insertAfter(data, List#node.next, TargetData, Data)}.
+    #node{data=List#node.data, next=insertAfter(data, List#node.next, TargetData, Data)};
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % index
@@ -55,16 +55,13 @@ insertAfter(index, List, Index, Data) ->
 insertAfter(index, List, Index, Data, CurrentIndex) ->
     io:format("CurrentIndex: ~p \n", [CurrentIndex]);
 
-
 insertAfter(index, List, Index, Data, CurrentIndex) when CurrentIndex == Index ->
     io:format("CurrentIndex: ~p \n", [CurrentIndex]);
 
 insertAfter(index, List, Index, Data, CurrentIndex) when List#node.next == undefined->
-    io:format("ERROR, exeeded list size!: ~p \n", [CurrentIndex]);
+    io:format("ERROR, exeeded list size!: ~p \n", [CurrentIndex]).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 valueExists(List, Value) when List#node.data == Value ->
     true;
 
@@ -73,7 +70,7 @@ valueExists(List, _) when List#node.next == undefined ->
 
 valueExists(List, Value) ->
     valueExists(List#node.next, Value).
-    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Basic test of linked list.
 test() ->
@@ -102,3 +99,4 @@ test() ->
 % TODO:
 %  [ ] How to avoid having to redefine SampleList over and over again?
 %   -- callbacks?
+%  [ ] How to enter and step through debugger?
