@@ -91,6 +91,11 @@ test() ->
     io:fwrite("SplicedList: \n"),
     io:format("~p \n", [SplicedList]),
 
+
+    % IndexedList = insertAfter(index, SplicedList, 2, "Indexed!!"),
+    % io:fwrite("Index after 2: \n"),
+    % io:format("~p \n", [IndexedList]),
+
     linkedList:valueExists(SampleList3, "Two").
 
 
