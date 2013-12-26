@@ -60,7 +60,13 @@ insertAfter(index, List, Index, Data, CurrentIndex) when List#node.next == undef
     io:format("ERROR, exeeded list size!: ~p \n", [CurrentIndex]);
 
 insertAfter(index, List, Index, Data, CurrentIndex) ->
-    #node{data=List#node.data, next = insertAfter(index, List#node.next, Index, Data, CurrentIndex +1)}.
+    #node{
+            data=List#node.data
+        ,   next = insertAfter(
+                    index
+                ,   List#node.next
+                ,   Index, Data, CurrentIndex +1)
+    }.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 valueExists(List, Value) when List#node.data == Value ->
     true;
@@ -96,8 +102,6 @@ test() ->
     io:format("~p \n", [IndexedList]),
 
     linkedList:valueExists(SampleList3, "Two").
-
-
 
 
 % TODO:
