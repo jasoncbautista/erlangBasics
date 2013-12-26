@@ -52,15 +52,15 @@ insertAfter(data, List, TargetData, Data) ->
 insertAfter(index, List, Index, Data) ->
     insertAfter(index, List, Index, Data, 0).
 
-insertAfter(index, List, Index, Data, CurrentIndex) ->
-    io:format("CurrentIndex: ~p \n", [CurrentIndex]);
-
 insertAfter(index, List, Index, Data, CurrentIndex) when CurrentIndex == Index ->
-    io:format("CurrentIndex: ~p \n", [CurrentIndex]);
+    InsertedNode = #node{data=Data, next=List#node.next},
+    #node{data=List#node.data, next=InsertedNode};
 
 insertAfter(index, List, Index, Data, CurrentIndex) when List#node.next == undefined->
-    io:format("ERROR, exeeded list size!: ~p \n", [CurrentIndex]).
+    io:format("ERROR, exeeded list size!: ~p \n", [CurrentIndex]);
 
+insertAfter(index, List, Index, Data, CurrentIndex) ->
+    #node{data=List#node.data, next = insertAfter(index, List#node.next, Index, Data, CurrentIndex +1)}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 valueExists(List, Value) when List#node.data == Value ->
     true;
@@ -91,10 +91,9 @@ test() ->
     io:fwrite("SplicedList: \n"),
     io:format("~p \n", [SplicedList]),
 
-
-    % IndexedList = insertAfter(index, SplicedList, 2, "Indexed!!"),
-    % io:fwrite("Index after 2: \n"),
-    % io:format("~p \n", [IndexedList]),
+    IndexedList = insertAfter(index, SplicedList, 2, "Indexed!!"),
+    io:fwrite("Index after 2: \n"),
+    io:format("~p \n", [IndexedList]),
 
     linkedList:valueExists(SampleList3, "Two").
 
