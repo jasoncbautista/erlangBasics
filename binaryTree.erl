@@ -2,7 +2,7 @@
 -record(node, {data, key, left, right}).
 
 % Some simple methods:
--export([new/0]).
+% -export([new/0]).
 -export([addNode/3]).
 
 -export([test/0]).
@@ -32,11 +32,11 @@ addNode(Tree, Key, Data) when Tree#node.key == key ->
     };
 
 addNode(Tree, Key, Data) when Tree#node.left == undefined ->
-    #node{data=Tree#node.data, key  Tree#node.key
+    #node{data=Tree#node.data, key = Tree#node.key
         , left= #node{key=Key, data = Data} }; 
 
 addNode(Tree, Key, Data) when Tree#node.right== undefined ->
-    #node{data=Tree#node.data, key  Tree#node.key
+    #node{data=Tree#node.data, key =Tree#node.key
         , right= #node{key=Key, data = Data} }; 
 
 
@@ -45,23 +45,25 @@ addNode(Tree, Key, Data)  ->
     case RandomNumber > 0.5 of 
         true  ->
             #node{data = Tree#node.data, key=Tree#node.data
-                , left: Tree#node.left
-                , right: addNode(Tree#node.right, Key, Data)
+                , left= Tree#node.left
+                , right= addNode(Tree#node.right, Key, Data)
             };
         false->
             #node{data = Tree#node.data, key=Tree#node.data
-                , right: Tree#node.right
-                , left: addNode(Tree#node.left, Key, Data)
+                , right= Tree#node.right
+                , left= addNode(Tree#node.left, Key, Data)
             }
     end.
 
 
 test() ->
     Tree = #node{},
-    Tree1 = addNode(Tree, "one", "Coolio"),
+    Tree1 = addNode(Tree, "one", "Coolio1"),
+    Tree2 = addNode(Tree1, "two", "Coolio2"),
+    Tree3 = addNode(Tree2, "three", "Coolio3"),
     
-    io:format("Tree1 ~p \n", Tree1]),
-    io:format("Tree ~p \n", Tree1]),
+    io:format("Tree ~p \n", [Tree]),
+    io:format("Tree3 ~p \n", [Tree3]),
 
     true.
 % TODO: 
