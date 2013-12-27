@@ -101,7 +101,9 @@ test() ->
     io:fwrite("Index after 2: \n"),
     io:format("~p \n", [IndexedList]),
 
-    linkedList:valueExists(SampleList3, "Two").
+    ValueExists = linkedList:valueExists(SampleList3, "Two"),
+    io:format("value exists, ~p , ~p \n", ["Two", ValueExists]),
+    linkedList:valueExists(SampleList3, "Four").
 
 
 % TODO:
