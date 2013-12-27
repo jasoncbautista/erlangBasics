@@ -9,7 +9,14 @@
 % Here we let the tree generate uniq ids for entries so that we
 % can better keep track of nodes
 
-addNode(left, Tree, TargetNode, NewNode) 
+addNodeAfter(left, Tree, TargetNode, NewNode) when Tree = #node{} ->
+    RandomNumber = random:uniform().
+
+
+
+
+% TODO: make a list based binary search tree =-)
+
 
 
 
