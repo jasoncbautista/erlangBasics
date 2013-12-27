@@ -188,11 +188,15 @@ start() ->
     % printEvenNumbers(-2, 5100),
     % printList(lists.seq(1, 10)),
 
+    Tuple = {"One", 2, {"inner", "tupple"}},
+    {O, T, I} = Tuple,
+    io:format(" Tuple: ~p \n Tuple Inner Part: ~p \n\n", [Tuple, i]),
+
     NewList = addToEndOfList([1,2,3], [4,5,6]),
     testing("NewList:"),
     printList(NewList),
     testing(":: NewList:"),
-basicPrint("Native append to list"), ComboLists = [100, 200] ++ [300, 400],
+    basicPrint("Native append to list"), ComboLists = [100, 200] ++ [300, 400],
     printList(ComboLists),
     
     printList([1, 2, 3]),
@@ -243,9 +247,9 @@ basicPrint("Native append to list"), ComboLists = [100, 200] ++ [300, 400],
 %
 %
 %[ ] tuples
-%[ ] records
+%[x] records
 %[ ] pointers
-%[ ] linked list
+%[x] linked list
 %[ ] Removing from linked list / tree / array
 %[ ] Binary tree
 %[x] max / min 
