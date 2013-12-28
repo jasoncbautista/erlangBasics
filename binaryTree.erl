@@ -30,11 +30,13 @@ addNode(Tree, Key, Data) when Tree#node.key == key ->
 addNode(Tree, Key, Data) when Tree#node.left == undefined ->
     io:fwrite("left undefined\n"),
     #node{data=Tree#node.data, key = Tree#node.key
+        , right= Tree#node.left
         , left= #node{key=Key, data = Data} }; 
 
 addNode(Tree, Key, Data) when Tree#node.right== undefined ->
     io:fwrite("right undefined\n"),
     #node{data=Tree#node.data, key =Tree#node.key
+        , left = Tree#node.left
         , right= #node{key=Key, data = Data} }; 
 
 addNode(Tree, Key, Data)  ->
@@ -60,6 +62,7 @@ test() ->
     io:fwrite("---------\n\n\n"),
     Tree = #node{},
     io:format("Tree ~p \n", [Tree]),
+    io:fwrite("---------\n\n\n"),
     Tree1 = addNode(Tree, "one", "Coolio1"),
     io:format("Tree1 ~p \n", [Tree1]),
     io:fwrite("---------\n\n\n"),
