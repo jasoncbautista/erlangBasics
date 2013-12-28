@@ -74,6 +74,21 @@ test() ->
     io:fwrite("---------\n\n\n"),
     Tree4 = addNode(Tree3, "four", "Coolio4"),
     io:format("Tree4 ~p \n", [Tree4]),
+    Tree5 = addNode(Tree4, "five", "Coolio5"),
+    io:format("Tree5 ~p \n", [Tree5]),
+
+    Tree6 = addNode(Tree5, "six", "Coolio6"),
+    io:format("Tree6 ~p \n", [Tree6]),
+
+    Tree7 = addNode(Tree6, "seven", "Coolio7"),
+    io:format("Tree7 ~p \n", [Tree7]),
+
+
+
+
+
+
+
     true.
 % TODO: 
 % [ ] binary SEARCH tree --> real search tree
