@@ -83,14 +83,9 @@ test() ->
     Tree7 = addNode(Tree6, "seven", "Coolio7"),
     io:format("Tree7 ~p \n", [Tree7]),
 
-
-
-
-
-
-
     true.
 % TODO: 
+% [x] basic binary tree
 % [ ] binary SEARCH tree --> real search tree
 % [ ] make a list based binary search tree =-)
 % [ ] use real erlang trees, built ins
