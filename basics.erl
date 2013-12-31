@@ -4,6 +4,8 @@
 -export([simpleCases/1]).
 -export([simpleIfs/1]).
 
+-export([simpleBinaries/1]).
+
 
 % Exceptions
 
@@ -30,6 +32,14 @@ simpleIfs(Number) ->
     end.
 
 
+simpleBinaries(Number) when Number == 0 ->
+    <<"zeor">>;
 
 
+simpleBinaries(Number) when Number == 1 ->
+    <<"one">>;
 
+
+simpleBinaries(Number) ->
+    Number.
+    
