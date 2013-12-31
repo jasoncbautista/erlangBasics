@@ -31,8 +31,8 @@ get_all_lines(Device) ->
     case io:get_line(Device, "") of
         eof  -> [];
         Line -> 
-            io:format("~p", [Line]),
-            Line ++ get_all_lines(Device)
+            io:format("~p \n\n", [Line]),
+            [Line] ++ get_all_lines(Device)
     end.
 
 % All at once
@@ -46,8 +46,6 @@ read(File) ->
         {ok, Data} -> [Data | read(File)];
         eof        -> []
     end.
-
-
 
 % Read line by line
 readAndSplit(Filename) ->
