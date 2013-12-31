@@ -2,6 +2,7 @@
 
 
 -export([simpleCases/1]).
+-export([simpleIfs/1]).
 
 
 % Exceptions
@@ -19,7 +20,14 @@ simpleCases(Number) ->
     end.
         
 
-
+simpleIfs(Number) ->
+    if Number == 0 ->
+            zero;
+        Number == 1->
+            one;
+        true ->
+            Number
+    end.
 
 
 
