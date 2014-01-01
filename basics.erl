@@ -60,7 +60,7 @@ spawningTest(Count) ->
     end,
     
     
-    [spawn(fun()->F(X)end) || X  <- lists:sec(0, 10)].
+    [spawn(fun()->F(X)end) || X  <- lists:seq(0, 10)].
 
 
 
