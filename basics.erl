@@ -5,6 +5,9 @@
 
 -export([simpleBinaries/1]).
 -export([anonymousFunctions/0]).
+-export([spawningTest/1]).
+
+-import(lists.seq).
 
 % Exceptions
 
@@ -38,14 +41,26 @@ simpleBinaries(Number) ->
     Number.
     
 
+
+
 anonymousFunctions() ->
     A = fun() -> 
-            timer:sleep(10),
             io:format("Simple fxn~n", [])
     end,
 
     A(),
 
     true.
+
+
+spawningTest(Count) ->
+    F = fun(X) ->
+            timer:sleep(10),
+            io:format("~p~n", [X])
+    end,
+    
+    
+    [spawn(fun()->F(X)end) || X  <- lists:sec(0, 10)].
+
 
 
