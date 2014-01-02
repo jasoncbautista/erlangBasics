@@ -58,5 +58,3 @@ spawningTest(Count) ->
     
     [spawn(fun()->F(X)end) || X  <- lists:seq(0, Count)].
 
-
-

@@ -13,6 +13,8 @@
 -export([read/1]).
 -export([readAndSplit/1]).
 
+-export([writeToFileBasic/0]).
+
 main() ->
     io:fwrite("hello world"),
     
@@ -55,3 +57,9 @@ readAndSplit(Filename) ->
 
 
 
+writeToFileBasic() ->
+    Data = [1,2,3,{car, "honda"}],
+    file:write_file("filetest.txt", io_lib:fwrite("~p.\n", [Data])),
+    true.
+
+% writeJason
