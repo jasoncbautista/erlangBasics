@@ -55,8 +55,6 @@ readAndSplit(Filename) ->
     S = binary:split(Data, [<<"\n">>], [global]),
      S.
 
-
-
 writeToFileBasic() ->
     Data = [1,2,3,{car, "honda"}],
     file:write_file("filetest.txt", io_lib:fwrite("~p.\n", [Data])),
