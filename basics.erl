@@ -27,7 +27,8 @@ simpleCases(Number) ->
         
 
 jsonExampleMochi() ->
-    mochijson:decode("{\"Name\":\"Tom\",\"Age\":10}"),
+    Json = mochijson:decode("{\"Name\":\"Tom\",\"Age\":10}"),
+    io:format("~p~n", [Json]),
     % {struct,[{"Name","Tom"},{"Age",10}]}.
     true.
 
