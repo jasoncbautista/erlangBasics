@@ -25,6 +25,12 @@ simpleCases(Number) ->
             Number
     end.
         
+
+jsonExampleMochi() ->
+    mochijson:decode("{\"Name\":\"Tom\",\"Age\":10}"),
+    % {struct,[{"Name","Tom"},{"Age",10}]}.
+    true.
+
 simpleIfs(Number) ->
     if Number == 0 ->
             zero;
@@ -37,10 +43,6 @@ simpleIfs(Number) ->
 simpleBinaries(Number) when Number == 0 ->
     <<"zeor">>;
 
-
-jsonExampleMochi()->
-    mochijson:decode("{\"Name\":\"Tom\",\"Age\":10}").   
-    {struct,[{"Name","Tom"},{"Age",10}]}.
 
 simpleBinaries(Number) when Number == 1 ->
     <<"one">>;
