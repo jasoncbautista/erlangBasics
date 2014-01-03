@@ -1,5 +1,6 @@
 -module(basics).
 
+
 -export([simpleCases/1]).
 -export([simpleIfs/1]).
 
@@ -8,7 +9,10 @@
 -export([spawningTest/1]).
 
 -import(lists.seq).
+-import(mochijson).
 
+
+-export([jsonExampleMochi/0]).
 % Exceptions
 
 simpleCases(Number) ->
@@ -34,6 +38,10 @@ simpleBinaries(Number) when Number == 0 ->
     <<"zeor">>;
 
 
+jsonExampleMochi()->
+    mochijson:decode("{\"Name\":\"Tom\",\"Age\":10}").   
+    {struct,[{"Name","Tom"},{"Age",10}]}.
+
 simpleBinaries(Number) when Number == 1 ->
     <<"one">>;
 
@@ -57,4 +65,6 @@ spawningTest(Count) ->
     end,
     
     [spawn(fun()->F(X)end) || X  <- lists:seq(0, Count)].
+
+
 
