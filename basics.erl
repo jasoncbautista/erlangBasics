@@ -36,8 +36,8 @@ jsonExampleMochi() ->
     io:format("~p~n", [LDecoded]),
 
 
-    % JsonString = mochijson.encode(JsonDecoded),
-    % io:format("~p~n", [JsonString]),
+    JsonString = mochijson:encode(JsonDecoded),
+    io:format("~p~n", [JsonString]),
 
     % {struct,[{"Name","Tom"},{"Age",10}]}.
     true.
