@@ -13,6 +13,8 @@
 
 
 -export([jsonExampleMochi/0]).
+-export([stringToBinary/0]).
+
 % Exceptions
 
 simpleCases(Number) ->
@@ -82,8 +84,12 @@ spawningTest(Count) ->
 
 
 stringToBinary() ->
-    R =io_lib:format("~p", [<<"one two">>]).
-    S =lists:flatten(R).
+    R =io_lib:format("~p", [<<"one two">>]),
+    io:format("~p~n", [R]),
+    S =lists:flatten(R),
+    io:format("~p~n", [S]),
+    B = list_to_binary("one"),
+    io:format("~p~n", [B]),
     true.
 
 
