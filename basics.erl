@@ -81,3 +81,10 @@ spawningTest(Count) ->
 
 
 
+stringToBinary() ->
+    R =io_lib:format("~p", [<<"one two">>]).
+    S =lists:flatten(R).
+    true.
+
+
+
