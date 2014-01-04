@@ -90,6 +90,7 @@ stringToBinary() ->
     io:format("~p~n", [S]),
     B = list_to_binary("one"),
     io:format("~p~n", [B]),
+    L = erlang:binary_to_list(<<"one">>),
     true.
 
 
