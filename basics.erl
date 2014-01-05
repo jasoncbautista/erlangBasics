@@ -81,8 +81,6 @@ spawningTest(Count) ->
     
     [spawn(fun()->F(X)end) || X  <- lists:seq(0, Count)].
 
-
-
 stringToBinary() ->
     R =io_lib:format("~p", [<<"one two">>]),
     io:format("~p~n", [R]),
@@ -92,6 +90,4 @@ stringToBinary() ->
     io:format("~p~n", [B]),
     L = erlang:binary_to_list(<<"one">>),
     true.
-
-
 
