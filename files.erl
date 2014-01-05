@@ -14,6 +14,7 @@
 -export([readAndSplit/1]).
 
 -export([writeToFileBasic/0]).
+-export([readJson/0]).
 
 main() ->
     io:fwrite("hello world"),
@@ -60,4 +61,7 @@ writeToFileBasic() ->
     file:write_file("filetest.txt", io_lib:fwrite("~p.\n", [Data])),
     true.
 
+readJson(FileName) ->
+
+    true.
 % writeJason

@@ -1,0 +1,7 @@
+{
+        "simple": "one"
+        , "simple2": "two"
+        , "_array": [1, 3, 4]
+        , "ff": { "one": 1, "two": 2}
+        , "xx": "00"
+}
