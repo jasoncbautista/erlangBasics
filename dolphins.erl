@@ -27,7 +27,15 @@ dolphin2() ->
             
 
 
-
-
-
-
+dolphin3() ->
+    receive 
+        {From, do_a_flip} ->
+            From ! "No thanks ~n",
+            dolphin3();
+        {From, fish} ->
+            From ! "all fish. ~n",
+            dolphin3();
+        _ ->
+            io:format("all catch ~n"),
+            dolphin3()
+    end.
