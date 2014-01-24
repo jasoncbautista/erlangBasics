@@ -17,9 +17,9 @@ dolphin1() ->
 
 dolphin2() ->
     receive
-        {From , do_a_flip}
+        {From , do_a_flip} ->
             From ! "No thanks ~n";
-        {From, fish}
+        {From, fish} ->
             From ! "all fish.~n";
         _ ->
             io:format("All catch....~n")
