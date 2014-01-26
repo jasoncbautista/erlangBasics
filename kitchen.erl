@@ -4,5 +4,9 @@
 fridge1() ->
     receive
         {From, {store, Food}} ->
+            From ! {self(), ok},
+            fridge1();
 
+        terminate ->
+            ok
 end.
