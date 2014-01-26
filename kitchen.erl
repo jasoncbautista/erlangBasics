@@ -3,7 +3,7 @@
 
 fridge1() ->
     receive
-        {From, {store, Food}} ->
+        {From, {store, _Food}} ->
             From ! {self(), ok},
             fridge1();
         {From, {take, _Food}} ->
@@ -13,13 +13,12 @@ fridge1() ->
             ok
 end.
 
-
 fridge2(FoodList) ->
     receive
-        {From {store, Food}} ->
+        {From, {store, Food}} ->
             From ! {self(), ok},
             firdge2([Food|FoodList]);
-        {From {take, Food}} ->
+        {From, {take, Food}} ->
             case lists:member(Food, FoodList) of
                 true ->
                     From ! {self(), {ok, Food}},
