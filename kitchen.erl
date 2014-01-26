@@ -1,6 +1,8 @@
 -module(kitchen).
 -compile(export_all).
 
+
+% A more simple version without state.
 fridge1() ->
     receive
         {From, {store, _Food}} ->
