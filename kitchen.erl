@@ -13,6 +13,7 @@ fridge1() ->
             ok
 end.
 
+%  A very simple recursive function that stores state in variables.
 fridge2(FoodList) ->
     receive
         {From, {store, Food}} ->
