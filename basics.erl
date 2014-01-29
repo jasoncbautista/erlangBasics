@@ -8,8 +8,8 @@
 -export([anonymousFunctions/0]).
 -export([spawningTest/1]).
 
--import(lists.seq).
--import(mochijson).
+%-import(lists.seq).
+%-import(mochijson).
 
 
 -export([jsonExampleMochi/0]).
